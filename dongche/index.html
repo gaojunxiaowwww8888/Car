@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <style>
+         body {
+              font-family: 'Microsoft Yahei', 'Helvetica Neue', Helvetica, Arial, 'FontAwesome', sans-serif;
+              font-size: 12px;
+              margin: 0px;
+              padding: 0px;
+              overflow: hidden;
+              width: 100%;
+         }
+    </style>
+</head>
+<body>
+     <div id="container">
+          <div id="counter">
+               <p style='text-align: center; font-size: 25px ', id = 'load'></p>
+          </div>
+     </div>
+     <div id="loading" style="display: none">
+          <div id="in"></div>
+          <p id ="p"></p>
+     </div>
+
+     <div id="floatTools" class="rides-cs" style="height:246px">
+          <div class="floatL">
+               <a style="display:block" id="aFloatTools_Show" class="btnOpen"  style="top:20px" href="javascript:void(0);">展开</a>
+               <a style="display:none" id="aFloatTools_Hide" class="btnCtn" title="操作说明" style="top:20px" href="javascript:void(0);">收缩</a>
+          </div>
+          <div id="divFloatToolsView" class="floatR" style="display: none;height:237px;width: 140px;">
+               <div class="cn">
+               <p style="font-size: 14px; text-align: center; color: #a9302a">
+                    预览状态下鼠标左键实现旋转，右键实现平移，中键实现缩放
+                    进入驾驶室时，按住上下左右键可实现模型的前后左右平移按
+                    住W按键实现视角的抬高，按住S键实现视角的降低按住鼠标左
+                    键移动鼠标时可实现模型的旋转效果
+               </p>
+               </div>
+          </div>
+     </div>
+
+     <div id="kefu">
+          <div class="top">
+               功能按钮<img src="res/image/close.gif" class="close" />
+          </div>
+          <div class="middle">
+               <button type="button" class="btn btn-info" id = "jcgw">机车归位</button>
+               <button type="button" class="btn btn-info" id = "wg">外部预览</button>
+               <button type="button" class="btn btn-info" id = "qb">前驾驶室</button>
+               <button type="button" class="btn btn-info" id = "hb">后驾驶室</button>
+               <button type="button" class="btn btn-info" id = "jcxs">机车行驶</button>
+          </div>
+          <p>
+          </p>
+     </div>
+     <div class="right_bar" id ="rightbar">
+          <img src="res/image/right_bar.jpg" />
+     </div>
+     <div id="loadbar"></div>
+     <div id="toolbar"><img src="res/toolbar/tree_nor.png" id="sx" title="属性" style="cursor: pointer"></div>
+
+     <link rel="stylesheet" type="text/css" href="css/wizplayer.css">
+     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+     <link rel="stylesheet" type="text/css" href="css/kefu.css">
+     <link rel="stylesheet" type="text/css" href="css/jquery.selectlist.css">
+
+     <script src="build/three.js"></script>
+     <script src="js/lights/RectAreaLightUniformsLib.js"></script>
+     <script src="js/jquery.min.js"></script>
+     <script src="js/RollerCoaster.js"></script>
+     <script src="js/bootstrap-table.js"></script>
+     <script src="js/jquery.selectlist.js"></script>
+     <script src="js/Detector.js"></script>
+     <script src ="js/viewer/Utility.js"></script>
+     <script src="js/viewer/ServerManger.js"></script>
+     <script src="js/measure/Measurement.js"></script>
+     <script src="js/viewer/AtrributeManager.js"></script>
+     <script src="js/viewer/CameraFov.js"></script>
+
+     <script src="js/viewer/FunctionClick.js"></script>
+     <script src="js/viewer/DrawDongcheWay.js"></script>
+     <script src="js/viewer/KeyBoard.js"></script>
+     <script src="js/viewer/AddSky.js"></script>
+     <script src="js/viewer/addChildren.js"></script>
+     <script src="js/viewer/addBehindChildren.js"></script>
+     <script src="js/controls/OrbitControls.js"></script>
+     <script src="js/viewer/Render.js"></script>
+     <script src="js/controls/PointerLockControls.js"></script>
+     <script src="js/controls/FirstPersonControls.js"></script>
+
+     <script src="js/loaders/GLTF2Loader.js"></script>
+     <script src="js/loaders/DDSLoader.js"></script>
+     <script src="js/loaders/OBJLoader.js"></script>
+     <script src="js/loaders/MTLLoader.js"></script>
+     <script src="js/loaders/FBXLoader.js"></script>
+
+     <script src="js/viewer/LightManger.js"></script>
+     <script src="js/viewer/PickMesh.js"></script>
+     <script src="js/viewer/kaiguanButton.js"></script>
+     <script src="js/viewer/kaiGuanBehindButton.js"></script>
+     <!--<script src="js/viewer/OperateManger.js"></script>-->
+
+     <script>
+         $(document).ready(
+             function () {
+                 // 检测浏览器是否支持WebGL
+                 if (!Detector.webgl) {
+                     Detector.addGetWebGLMessage({ parent: document.getElementById('container') });
+                 } else {
+                   btfuction();
+                   init();
+                 }
+             }
+         );
+
+         function btfuction() {
+             $("#aFloatTools_Show").click(function(){
+                 $('#divFloatToolsView').animate({width:'show',opacity:'show'},100,function(){$('#divFloatToolsView').show();});
+                 $('#aFloatTools_Show').hide();
+                 $('#aFloatTools_Hide').show();
+             });
+             $("#aFloatTools_Hide").click(function(){
+                 $('#divFloatToolsView').animate({width:'hide', opacity:'hide'},100,function(){$('#divFloatToolsView').hide();});
+                 $('#aFloatTools_Show').show();
+                 $('#aFloatTools_Hide').hide();
+             });
+
+             $('.right_bar').click(function(){
+                 $(this).hide();
+                 $('#kefu').show();
+             });
+
+             $('#kefu .close').click(function(){
+                 $('.right_bar').show();
+                 $('#kefu').hide();
+             });
+         }
+
+     </script>
+</body>
+</html>

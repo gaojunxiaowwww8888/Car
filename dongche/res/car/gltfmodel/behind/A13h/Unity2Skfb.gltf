@@ -1,0 +1,190 @@
+{
+	"asset": {
+		"generator": "Unity 5.6.3f1",
+		"extras": {
+			"exporterVersion" : "2.1.1"
+		},
+		"version": "2.0"
+	},
+	"accessors": [
+		{
+			"bufferView": 2,
+			"byteOffset": 0,
+			"componentType": 5126,
+			"count": 39,
+			"max": [ 0.0138, 0.0128, 0.0099 ],
+			"min": [ -0.0124, -0.0134, -0.0098 ],
+			"type": "VEC3"
+		},
+		{
+			"bufferView": 2,
+			"byteOffset": 468,
+			"componentType": 5126,
+			"count": 39,
+			"max": [ 0.8591017, 0.999409, 0.04290065 ],
+			"min": [ -0.8761656, -0.9993622, -0.9999968 ],
+			"type": "VEC3"
+		},
+		{
+			"bufferView": 1,
+			"byteOffset": 0,
+			"componentType": 5126,
+			"count": 39,
+			"max": [ 0.8372, 0.5061 ],
+			"min": [ 0.706, 0.4476 ],
+			"type": "VEC2"
+		},
+		{
+			"bufferView": 3,
+			"byteOffset": 0,
+			"componentType": 5126,
+			"count": 39,
+			"max": [ 0.9991764, 0.914133, 0.7664099, 1 ],
+			"min": [ -0.9993854, -0.9140031, -0.7874312, 1 ],
+			"type": "VEC4"
+		},
+		{
+			"bufferView": 0,
+			"byteOffset": 0,
+			"componentType": 5123,
+			"count": 108,
+			"max": [ 38 ],
+			"min": [ 0 ],
+			"type": "SCALAR"
+		}
+	],
+	"buffers": [
+		{
+			"byteLength": 2088,
+			"uri": "Unity2Skfb.bin"
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 216,
+			"byteOffset": 1872,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 312,
+			"byteOffset": 0,
+			"byteStride": 8,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 936,
+			"byteOffset": 312,
+			"byteStride": 12,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 624,
+			"byteOffset": 1248,
+			"byteStride": 16,
+			"target": 34962
+		}
+	],
+	"images": [
+		{
+			"uri": "Assets/jicheanniu/40_dianhua.jpg"
+		},
+		{
+			"uri": "Assets/jicheanniu/40_dianhua_converted_metalRoughness.jpg"
+		}
+	],
+	"materials": [
+		{
+			"pbrMetallicRoughness": {
+				"baseColorTexture" : {
+					"index" : 0,
+					"texCoord" : 0
+				},
+				"baseColorFactor": [0.588, 0.588, 0.588, 1],
+				"metallicRoughnessTexture" : {
+					"index" : 1,
+					"texCoord" : 0
+				},
+				"metallicFactor": 1,
+				"roughnessFactor": 1
+			},
+			"emissiveTexture" : {
+				"index" : 0,
+				"texCoord" : 0
+			},
+			"emissiveFactor": [1, 1, 1],
+			"doubleSided": false,
+			"name": "Material__67"
+		}
+	],
+	"meshes": [
+		{
+			"name": "mesh_A001_47322A13_kong",
+			"primitives": [
+				{
+					"attributes": {
+						"POSITION": 0,
+						"NORMAL": 1,
+						"TEXCOORD_0": 2,
+						"TANGENT": 3
+					},
+					"indices": 4,
+					"material": 0,
+					"mode": 4
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"name": "UnityGlTF_correctionMatrix",
+			"children": [
+				2
+			],
+			"matrix": [-1, 0, -8.742278E-08, 0, 0, 1, 0, 0, 8.742278E-08, 0, -1, 0, 0, 0, 0, 1]
+		},
+		{
+			"name": "node_A13_kong_-192526",
+			"mesh": 0,
+			"translation": [ 0.01128757, -0.01338387, 0.002645015],
+			"rotation": [-0.4839198, -0.4666757, -0.1540195, -0.7240949]
+		},
+		{
+			"name": "node_A13_02_-192522",
+			"children": [
+				1
+			],
+			"matrix": [-0.1226956, -0.8058127, 0.5793198, 0, -0.3565332, 0.580551, 0.7320141, 0, -0.926191, -0.116732, -0.35853, 0, 0.004715174, 0.00641904, -0.004273097, 1]
+		}
+	],
+	"samplers": [
+		{
+			"magFilter": 9729,
+			"minFilter": 9985,
+			"wrapS": 10497,
+			"wrapT": 10497
+		}
+	],
+	"scenes": [
+		{
+			"name":"defaultScene",
+			"nodes": [
+				0
+			]
+		}
+	],
+	"scene": 0,
+	"textures": [
+		{
+			"sampler": 0,
+			"source": 0
+		},
+		{
+			"sampler": 0,
+			"source": 1
+		}
+	]
+}
